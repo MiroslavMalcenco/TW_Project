@@ -87,6 +87,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css %28MINTON%29\bootstrap.min.css" />
+    <Content Include="Content\css %28MINTON%29\materialdesignicons.min.css" />
+    <Content Include="Content\css %28MINTON%29\pe-icon-7-stroke.css" />
+    <Content Include="Content\css %28MINTON%29\style.css" />
+    <Content Include="Content\fonts %28MINTON%29\materialdesignicons-webfont.svg" />
+    <Content Include="Content\fonts %28MINTON%29\Pe-icon-7-stroke.svg" />
+    <Content Include="Content\images %28MINTON%29\blog\blog-details.jpg" />
+    <Content Include="Content\images %28MINTON%29\blog\img-1.jpg" />
+    <Content Include="Content\images %28MINTON%29\blog\img-2.jpg" />
+    <Content Include="Content\images %28MINTON%29\blog\img-3.jpg" />
+    <Content Include="Content\images %28MINTON%29\blog\img-4.jpg" />
+    <Content Include="Content\images %28MINTON%29\blog\img-5.jpg" />
+    <Content Include="Content\images %28MINTON%29\blog\img-6.jpg" />
+    <Content Include="Content\images %28MINTON%29\clients\1.png" />
+    <Content Include="Content\images %28MINTON%29\clients\2.png" />
+    <Content Include="Content\images %28MINTON%29\clients\3.png" />
+    <Content Include="Content\images %28MINTON%29\clients\4.png" />
+    <Content Include="Content\images %28MINTON%29\clients\5.png" />
+    <Content Include="Content\images %28MINTON%29\clients\6.png" />
+    <Content Include="Content\images %28MINTON%29\faq-img.png" />
+    <Content Include="Content\images %28MINTON%29\favicon.ico" />
+    <Content Include="Content\images %28MINTON%29\features\img-1.png" />
+    <Content Include="Content\images %28MINTON%29\features\img-2.png" />
+    <Content Include="Content\images %28MINTON%29\home-img.png" />
+    <Content Include="Content\images %28MINTON%29\logo-dark.png" />
+    <Content Include="Content\images %28MINTON%29\logo-light.png" />
+    <Content Include="Content\images %28MINTON%29\team\img-1.jpg" />
+    <Content Include="Content\images %28MINTON%29\team\img-2.jpg" />
+    <Content Include="Content\images %28MINTON%29\team\img-3.jpg" />
+    <Content Include="Content\images %28MINTON%29\team\img-4.jpg" />
+    <Content Include="Content\images %28MINTON%29\users\img-1.png" />
+    <Content Include="Content\images %28MINTON%29\users\img-2.png" />
+    <Content Include="Content\images %28MINTON%29\users\img-3.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -101,6 +134,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Content\css %28MINTON%29\style.css.map" />
+    <Content Include="Content\fonts %28MINTON%29\materialdesignicons-webfont.eot" />
+    <Content Include="Content\fonts %28MINTON%29\materialdesignicons-webfont.ttf" />
+    <Content Include="Content\fonts %28MINTON%29\materialdesignicons-webfont.woff" />
+    <Content Include="Content\fonts %28MINTON%29\materialdesignicons-webfont.woff2" />
+    <Content Include="Content\fonts %28MINTON%29\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\fonts %28MINTON%29\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\fonts %28MINTON%29\Pe-icon-7-stroke.woff" />
+    <Content Include="Content\scss %28MINTON%29\style.scss" />
+    <Content Include="Content\scss %28MINTON%29\_variable.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
@@ -112,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
