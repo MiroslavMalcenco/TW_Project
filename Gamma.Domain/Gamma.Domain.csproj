@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7F539D8-5B64-46EA-94F2-375173BC2E90}</ProjectGuid>
+    <ProjectGuid>{CAEBEB4A-7DEA-43DA-B43E-F1049A5D1AE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gamma.BuisnessLogic</RootNamespace>
-    <AssemblyName>Gamma.BuisnessLogic</AssemblyName>
+    <RootNamespace>Gamma.Domain</RootNamespace>
+    <AssemblyName>Gamma.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -44,10 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gamma.Domain\Gamma.Domain.csproj">
-      <Project>{caebeb4a-7dea-43da-b43e-f1049a5d1ae4}</Project>
-      <Name>Gamma.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gamma.Helpers\Gamma.Helpers.csproj">
       <Project>{60f4f81a-82bc-4251-b739-6c70279d58a4}</Project>
       <Name>Gamma.Helpers</Name>

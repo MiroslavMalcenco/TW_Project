@@ -114,6 +114,16 @@
     <Folder Include="Content\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gamma.BuisnessLogic\Gamma.BuisnessLogic.csproj">
+      <Project>{d7f539d8-5b64-46ea-94f2-375173bc2e90}</Project>
+      <Name>Gamma.BuisnessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gamma.Domain\Gamma.Domain.csproj">
+      <Project>{caebeb4a-7dea-43da-b43e-f1049a5d1ae4}</Project>
+      <Name>Gamma.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
