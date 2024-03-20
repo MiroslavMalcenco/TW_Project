@@ -120,6 +120,12 @@
     <Content Include="Content\images %28MINTON%29\users\img-1.png" />
     <Content Include="Content\images %28MINTON%29\users\img-2.png" />
     <Content Include="Content\images %28MINTON%29\users\img-3.png" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\counter.init.js" />
+    <Content Include="Content\js\jquery.easing.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\scrollspy.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -144,8 +150,10 @@
     <Content Include="Content\fonts %28MINTON%29\Pe-icon-7-stroke.woff" />
     <Content Include="Content\scss %28MINTON%29\style.scss" />
     <Content Include="Content\scss %28MINTON%29\_variable.scss" />
+    <Content Include="Content\php %28MINTON%29\contact.php" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
