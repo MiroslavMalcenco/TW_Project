@@ -1,0 +1,31 @@
+@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Minton - Responsive Admin Dashboard & Landing Page Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="~/Content/images (MINTON)/favicon.ico">
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+
+    <!-- Primary HOME style -->
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/materialdesignicons/css")
+    @Styles.Render("~/bundles/pe-icon-7-stroke/css")
+    @Styles.Render("~/bundles/style/css")
+
+</head>
+
+<body>
+    @Html.Partial("_Header")
+    @RenderBody()
+    @Html.Partial("_mainHome")
+    @Html.Partial("_Footer")
+</body>
+</html>
