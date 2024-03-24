@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamma.WEB", "Gamma\Gamma.WEB.csproj", "{973F1E56-097A-439A-BFE4-9BED19BC487A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamma.BuisnessLogic", "Gamma.BuisnessLogic\Gamma.BuisnessLogic.csproj", "{D7F539D8-5B64-46EA-94F2-375173BC2E90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamma.BusinessLogic", "Gamma.BuisnessLogic\Gamma.BusinessLogic.csproj", "{D7F539D8-5B64-46EA-94F2-375173BC2E90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamma.Domain", "Gamma.Domain\Gamma.Domain.csproj", "{CAEBEB4A-7DEA-43DA-B43E-F1049A5D1AE4}"
 EndProject
