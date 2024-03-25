@@ -1,0 +1,125 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
+}
+@model Gamma.Web.Models.SearchWrapData
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="searchwrap">
+        <div class="container">
+            <h3>Искали новых вкусовых ощущений?   Ваши поиски окончены!</h3>
+            <p>Более сотни различных блюд ожидают вашей дегустации. </p>
+            <div class="searchbar">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.TextBox("IngredientsOrName", null, new { @class = "form-control", placeholder = "Введите название блюда" })
+                        @Html.ValidationMessage("IngredientsOrName")
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" name="PriceRange">
+                            <option value="">Стоимость</option>
+                            <option value="1-10">$1 - $10</option>
+                            <option value="5-15">$5 - $15</option>
+                            <option value="15-30">$15 - $30</option>
+                            <option value="20-50">$20 - $50</option>
+                            <option value="50-100">$50 - $100</option>
+                            <option value="200-1000">$200 - $1000</option>
+                            <option value="1000-@Int32.MaxValue">Около $1000</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" name="Cuisine">
+                            <option value="">Предпочтения</option>
+                            <option value="Any">Любое</option>
+                            <option value="Vegetarian">Вегетарианец</option>
+                            <option value="Vegan">Веган</option>
+                            <option value="GlutenFree">Без глютена</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn" value="Поиск">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="section">
+    <div class="container">
+        <div class="titleTop">
+            <h3>СОВРЕМЕННЫЙ РЕСТОРАН <span>МОЛЕКУЛЯРНОЙ</span> КУХНИ</h3>
+        </div>
+        @if (ViewBag.LatestRecords != null)
+        {
+            <ul class="gridlist itemgrid owl-carousel owl-theme owl-loaded owl-responsive-768">
+                @foreach (var post in ViewBag.LatestRecords)
+                {
+                <li class="item">
+                    <div class="innerad">
+                        <h3><a href="@Url.Action("Detail", "Post", new {PostId = post.Id})">@post.Ingredients @post.Name @post.Calories</a></h3>
+                        <div class="price">$@post.Price</div>
+                        <div class="Cuisine"><i class="fa fa-map-marker" aria-hidden="true"></i> @post.Cuisine</div>
+                    </div>
+                    <div class="adimg">
+                        <div class="ribbon_3 popular"><span>Featured</span></div>
+                        <a href="@Url.Action("Detail", "Post", new {PostId = post.Id})"></a>
+                    </div>
+                    <div class="innerad"> <a href="@Url.Action("Detail", "Post", new {PostId = post.Id})" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
+                </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <h3>В этом мире ещё столько всего неопробованного! Так зачем ограничивать себя?</h3>
+        }
+    </div>
+</div>
+}
+<div class="about-wrap">
+    <div class="col-md-6">
+        <div class="about-image"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="aboutinfo">
+            <div class="title">
+                <span>Фешенебельный ресторан в центре Кишинёва</span>
+                <h1><span>Добро пожаловать в</span> Gamma</h1>
+            </div>
+            <p>Стильный антураж с приятной атмосферой, с первоклассным персоналом и изумительными вкусовыми ощущениями - всё это про Gamma.</p>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="section whitebg">
+    <div class="container">
+        <div class="titleTop">
+            <h3>Обзоры от ресторанных критиков и дегустаторов <span>Gamma</span></h3>
+        </div>
+    </div>
+</div>
+<div class="taglinewrap">
+    <div class="container">
+        <h2>Окунись в море новых ощущений</h2>
+        <p>Сделай заказ прямо сейчас и попробуй все новинки одним из первых!</p>
+        <a href="@Url.Action("Listing", "Listing")">Прочитать обзоры</a> <a href="@Url.Action("AddPost", "Post")" class="buy">Оставить обзор</a>
+    </div>
+</div>
+<div class="section whitebg howitwrap">
+    <div class="container">
+        <ul class="howlist row">
+            <li class="col-md-4 col-sm-4">
+                <div class="iconcircle"><img src="~/Content/images/avatar.png" alt=""width="170" height="170" /></div>
+                <h4>Создайте аккаунт</h4>
+            </li>
+            <li class="col-md-4 col-sm-4">
+                <div class="iconcircle"><img src="~/Content/images/location.png" alt=""  width="150" height="150"/></div>
+                <h4>Посетите наш ресторан, мы работаем без выходных!</h4>
+            </li>
+            <li class="col-md-4 col-sm-4">
+                <div class="iconcircle"><img src="~/Content/images/order.png" alt="" width="150" height="150"/></div>
+                <h4>Дайте нам знать о ваших впечатлениях, напишите обзор!</h4>
+            </li>
+        </ul>
+    </div>
+</div>
