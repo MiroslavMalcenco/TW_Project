@@ -1,0 +1,6 @@
+TW_Project/.vs
+.vs
+*.cache
+*.pdb
+bin/
+obj/
