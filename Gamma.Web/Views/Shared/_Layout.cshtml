@@ -1,0 +1,36 @@
+﻿@using System.Web.Optimization
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gamma - ресторан вашей мечты!</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    @Styles.Render("~/bundles/owlcarousel/css")
+    @Styles.Render("~/bundles/owlcarouseltheme/css")
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/fontawesome/css")
+    @Styles.Render("~/bundles/main/css")
+    @Styles.Render("~/bundles/otherstyles/css")
+</head>
+<body>
+    <div class="topbar-wrap">
+        @Html.Partial("_TopbarWrap")
+    </div>
+    <div class="header">
+        @Html.Partial("_Header")
+    </div>
+    <div class="section">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        @Html.Partial("_Footer")
+    </div>
+    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/owlcarousel/js")
+    @Scripts.Render("~/bundles/main/js")
+    @Scripts.Render("~/bundles/validate/js")
+    @Scripts.Render("~/bundles/validateUnobtrusive/js")
+</body>
+</html>

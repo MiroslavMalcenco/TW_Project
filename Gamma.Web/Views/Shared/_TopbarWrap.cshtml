@@ -1,0 +1,28 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="tpinfo"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +373 22000000</a> <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Str. Studenților, mun. Chișinău</a></div>
+        </div>
+        @{
+            var authUser = TempData["AuthenticatedUser"] as Gamma.Domain.Entities.User.UserMinimal;
+            if (authUser == null)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="toplinks">
+                        <a href="@Url.Action("Index", "Register")">Регистрация</a>
+                        <a href="@Url.Action("Index", "Login")">Вход</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="toplinks">
+                        <a href="@Url.Action("Dashboard", "Dashboard")">@authUser.Username</a>
+                        <a href="@Url.Action("UserLogout", "Dashboard")">Выйти</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

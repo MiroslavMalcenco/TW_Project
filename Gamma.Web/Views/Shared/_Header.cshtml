@@ -1,0 +1,49 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-2 col-sm-3 col-xs-12">
+            <a href="@Url.Action("Index", "Home")" class="logo"><img src="@Url.Content("~/Content/images/logo3.jpg")" alt=""width="50" height="50" /></a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-10 col-sm-12 col-xs-12">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-collapse collapse" id="nav-main">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Index", "Home")">На главную</a></li>
+                        <li class="dropdown">
+                            @{
+                                var authUser = TempData["AuthenticatedUser"] as Gamma.Domain.Entities.User.UserMinimal;
+                                if (authUser != null)
+                                {
+                                    <a href="#.">Страницы<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@Url.Action("AboutUs", "AboutUs")">О нас</a></li>
+                                        <li><a href="@Url.Action("Dashboard", "Dashboard")">Панель управления</a></li>
+                                        <li><a href="@Url.Action("AddPost", "Post")">Написать обзор</a></li>
+                                        <li><a href="@Url.Action("FAQs", "AboutUs")">FAQ</a></li>
+                                        <li><a href="@Url.Action("UserLogout", "Dashboard")">Выйти</a></li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a href="#.">Страницы<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@Url.Action("AboutUs", "AboutUs")">О нас</a></li>
+                                        <li><a href="@Url.Action("Index", "Login")">Вход</a></li>
+                                        <li><a href="@Url.Action("Index", "Register")">Регистрация</a></li>
+                                        <li><a href="@Url.Action("FAQs", "AboutUs")">FAQ</a></li>
+                                    </ul>
+                                }
+                            }
+                        </li>
+                        <li><a href="@Url.Action("ContactUs", "AboutUs")">Контакты</a></li>
+                        <li class="postad"><a href="@Url.Action("AddPost", "Post")">Написать обзор</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
