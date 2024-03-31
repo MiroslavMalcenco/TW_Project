@@ -1,0 +1,50 @@
+﻿@{
+    @model Gamma.Web.Models.LoginData
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Login";
+}
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Авторизация</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    <div class="listpgWraper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="userccount">
+                        <h5>Войти в аккаунт</h5>
+                        <div class="formpanel">
+                            <div class="formrow">
+                                @Html.TextBoxFor(a => a.Username, new { @class = "form-control", placeholder = "Username" })
+                            </div>
+                            <div class="formrow">
+                                @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
+                            </div>
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                        {
+                                            <li>@error.ErrorMessage</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                            <input type="submit" class="btn" value="Войти">
+                        </div>
+                        <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i>  Впервые на сайте? <a href="@Url.Action("Index", "Register")">Создайте аккаунт</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
