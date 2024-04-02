@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Register";
+}
+@model Gamma.Web.Models.RegisterData
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Регистрация</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="listpgWraper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="userccount">
+                    @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                    {
+                        <div class="tab-content">
+                            <div class="formpanel tab-pane fade in active">
+                                <div class="formrow">
+                                    @Html.TextBoxFor(a => a.FullName, new { @class = "form-control", placeholder = "Full Name" })
+                                    @Html.ValidationMessageFor(a => a.FullName)
+                                </div>
+                                <div class="formrow">
+                                    @Html.TextBoxFor(a => a.UserName, new { @class = "form-control", placeholder = "Username" })
+                                    @Html.ValidationMessageFor(a => a.UserName)
+                                </div>
+                                <div class="formrow">
+                                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control", placeholder = "Email" })
+                                    @Html.ValidationMessageFor(a => a.Email)
+                                </div>
+                                <div class="formrow">
+                                    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control", placeholder = "Phone number" })
+                                    @Html.ValidationMessageFor(a => a.PhoneNumber)
+                                </div>
+                                <div class="formrow">
+                                    @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
+                                    @Html.ValidationMessageFor(a => a.Password)
+                                </div>
+                                <div class="formrow">
+                                    <input type="checkbox" value="true" name="Terms" />
+                                    Я принимаю условия пользовательского соглашения
+                                </div>
+                                @if (!ViewData.ModelState.IsValid)
+                                {
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                            {
+                                                <li>@error.ErrorMessage</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                                <input type="submit" class="btn" value="Создать аккаунт">
+                            </div>
+                        </div>
+                    }
+                    <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> Есть аккаунт? <a href="@Url.Action("Index", "Login")">Войти</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
