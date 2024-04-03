@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ActivePosts";
+}
+@model System.Collections.Generic.List<Gamma.Domain.Entities.Post.PostMinimal>
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Панель управления</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <ul class="usernavdash">
+                    <li><a href="@Url.Action("Dashboard", "Dashboard")"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                    <li><a href="@Url.Action("EditProfile", "Dashboard")"><i class="fa fa-user" aria-hidden="true"></i>Edit Profile</a></li>
+                    <li class="active"><a href="@Url.Action("ActivePosts", "Dashboard")"><i class="fa fa-laptop" aria-hidden="true"></i>Review List</a></li>
+                    <li><a href="@Url.Action("ChangePassword", "Dashboard")"><i class="fa fa-lock" aria-hidden="true"></i>Password Settings</a></li>
+                    <li><a href="@Url.Action("UserLogout", "Dashboard")"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <div class="myads">
+                    @if (Model.Count() > 0)
+                    {
+                        <h3>Мои обзоры</h3>
+                        foreach (var item in Model)
+                        {
+                            <ul class="searchList">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                            <div class="adimg"><img src="@Url.Content(item.ImagePath)" alt="Ad Name" /></div>
+                                        </div>
+                                        <div class="col-md-9 col-sm-8">
+                                            <div class="jobinfo">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-sm-7">
+                                                        <h3><a href="@Url.Action("Detail", "Post", new { PostId = item.Id })">@item.Ingredients @item.Name </a></h3>
+                                                        <div class="Cuisine"><i class="fa fa-calendar" aria-hidden="true"></i> <span>@item.Calories</span></div>
+                                                        <div class="Cuisine"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>@item.SpicinessLevel</span></div>
+                                                        <div class="Cuisine"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>@item.Cuisine</span></div>
+                                                        <div class="clearfix"></div>
+                                                        <div class="vinfo"><span>@item.DietaryRestrictions</span></div>
+                                                        <div class="vinfo"><span>@item.Rating</span></div>
+                                                        <div class="vinfo"><span>@item.ChefSpeciality</span></div>
+                                                        <div class="clearfix"></div>
+                                                        <div class="date">Date Added: @item.DateAdded.ToString("dd.MM.yyyy")</div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-5 text-right">
+                                                        <div class="adprice">$@item.Price</div>
+                                                        <div class="listbtn">
+                                                            <div class="listbtn">
+                                                                <a href="@Url.Action("EditPost", "Post", new {postId = item.Id})" class="edit"> Edit<i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <form method="post" action="@Url.Action("Delete", "Post", new { postId = item.Id })" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <h3>Нет обзоров!</h3>
+                        <div class="btn"><a href="@Url.Action("AddPost", "Post")">Написать обзор<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

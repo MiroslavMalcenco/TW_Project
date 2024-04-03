@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+@model Gamma.Web.Models.UserData
+@if (Model == null)
+{
+    var Name = new Gamma.Web.Models.UserData();
+}
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Панель управления</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <ul class="usernavdash">
+                    <li><a href="@Url.Action("Dashboard", "Dashboard")"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                    <li class="active"><a href="@Url.Action("EditProfile", "Dashboard", new {userId = Model.Id})"><i class="fa fa-user" aria-hidden="true"></i>Edit Profile</a></li>
+                    <li><a href="@Url.Action("ActivePosts", "Dashboard", new {userId = Model.Id})"><i class="fa fa-laptop" aria-hidden="true"></i>Review List</a></li>
+                    <li><a href="@Url.Action("ChangePassword", "Dashboard", new {userId = Model.Id})"><i class="fa fa-lock" aria-hidden="true"></i>Password Settings</a></li>
+                    <li><a href="@Url.Action("UserLogout", "Dashboard")"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <div class="userccount">
+                    @using (Html.BeginForm("EditProfile", "Dashboard", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(a => a.Id)
+                        <div class="formpanel">
+                            <h5>Измените свою личную информацию</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.FullName)
+                                        <h3></h3>
+                                        @Html.TextBoxFor(a => a.FullName, new { @class = "form-control", placeholder = "Full Name" })
+                                        @Html.ValidationMessageFor(a => a.FullName)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.PhoneNumber)
+                                        <h3></h3>
+                                        @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control", placeholder = "Phone" })
+                                        @Html.ValidationMessageFor(a => a.PhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Email)
+                                        <h3></h3>
+                                        @Html.TextBoxFor(a => a.Email, new { @class = "form-control", placeholder = "Email" })
+                                        @Html.ValidationMessageFor(a => a.Email)
+                                    </div>
+                                </div>
+                                @if (!ViewData.ModelState.IsValid)
+                                {
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                            {
+                                                <li>@error.ErrorMessage</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                            <hr>
+                        </div>
+                        <br>
+                        <input type="submit" class="btn" value="Update and Save">
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

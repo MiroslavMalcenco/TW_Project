@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+@model Gamma.Web.Models.UserData
+@if (Model == null)
+{
+    var Name = new Gamma.Web.Models.UserData();
+}
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Панель управления</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.AntiForgeryToken()
+<div class="inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <ul class="usernavdash">
+                    <li class="active"><a href="@Url.Action("Dashboard", "Dashboard")"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                    <li><a href="@Url.Action("EditProfile", "Dashboard", new {userId = Model.Id})"><i class="fa fa-user" aria-hidden="true"></i>Edit Profile</a></li>
+                    <li><a href="@Url.Action("ActivePosts", "Dashboard", new {userId = Model.Id})"><i class="fa fa-laptop" aria-hidden="true"></i>Review List</a></li>
+                    <li><a href="@Url.Action("ChangePassword", "Dashboard", new {userId = Model.Id})"><i class="fa fa-lock" aria-hidden="true"></i>Password Settings</a></li>
+                    <li><a href="@Url.Action("UserLogout", "Dashboard")"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <div class="userccount">
+                    <div class="formpanel">
+                        <h5>Личная информация</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.Username)
+                                    <h3></h3>
+                                    <h4>Username</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.FullName)
+                                    <h3></h3>
+                                    <h4>FullName</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.PhoneNumber)
+                                    <h3></h3>
+                                    <h4>PhoneNumber</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.Email)
+                                    <h3></h3>
+                                    <h4>Email</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="logoutForm" action="@Url.Action("Logout", "Dashboard")" method="post">
+    @Html.AntiForgeryToken()
+</form>
