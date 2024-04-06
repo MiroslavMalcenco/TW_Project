@@ -1,0 +1,115 @@
+﻿@model Gamma.Web.Models.ListingPageData
+
+@if (Model != null)
+{
+    using (Html.BeginForm("Sidebar", "Listing", FormMethod.Post))
+    {
+        <div class="sidebar">
+            <div class="widget">
+                <h4 class="widget-title">Search By Keyword</h4>
+                <div class="input-group">
+                    @Html.TextBoxFor(a => a.SideBar.KeyWord, new { @class = "form-control", placeholder = "Keyword" })
+                </div>
+            </div>
+            <div class="widget">
+                <h4 class="widget-title">Price Range $</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MinPrice">
+                            <option value="0">From</option>
+                            @foreach (var item in Model.SideBar.PriceRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MaxPrice">
+                            <option value="1000000">To</option>
+                            @foreach (var item in Model.SideBar.PriceRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="widget">
+                <h4 class="widget-title">Cuisine</h4>
+                <select class="form-control" name="SideBar.Cuisine">
+                    <option value="Not specified">Any Cuisine</option>
+                    @foreach (var item in Model.SideBar.CuisineList)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </div>
+            <div class="widget">
+                <h4 class="widget-title">Calories Range</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MinCalories">
+                            <option value="">From</option>
+                            @foreach (var item in Model.SideBar.CaloriesRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MaxCalories">
+                            <option value="">To</option>
+                            @foreach (var item in Model.SideBar.CaloriesRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="widget">
+                    <h4 class="widget-title">Ingredients</h4>
+                    <select class="form-control" name="SideBar.Ingredients">
+                        <option value="Not specified">Ingredients</option>
+                        @foreach (var item in Model.SideBar.IngredientsList)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </div>
+                <div class="widget">
+                    <h4 class="widget-title">ChefSpeciality</h4>
+                    <ul class="optionlist">
+                        <li>
+                            <input type="checkbox" name="SideBar.ChefSpeciality" value="Yes" />
+                            <label for="Yes"></label>
+                            Yes
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SideBar.ChefSpeciality" value="No" />
+                            <label for="No"></label>
+                            No
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h4 class="widget-title">DietaryRestrictions</h4>
+                    <ul class="optionlist">
+                        <li>
+                            <input type="checkbox" name="SideBar.DietaryRestrictions" id="DietaryRestrictionsYes" value="Yes" />
+                            <label for="DietaryRestrictionsYes"></label>
+                            Yes
+                        </li>
+                        <li>
+                            <input type="checkbox" name="SideBar.DietaryRestrictions" id="DietaryRestrictionsNo" value="No" />
+                            <label for="DietaryRestrictionsNo"></label>
+                            No
+                        </li>
+                    </ul>
+                </div>
+                <div class="searchnt">
+                    <input type="submit" class="btn" value="Update Results">
+                </div>
+            </div>
+        </div>
+    }
+}

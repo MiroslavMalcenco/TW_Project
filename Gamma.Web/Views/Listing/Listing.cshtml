@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listing";
+}
+@model Gamma.Web.Models.ListingPageData
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Listing</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="listpgWraper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-5">
+                @Html.Partial("_Sidebar")
+            </div>
+            <div class="col-md-9 col-sm-7">
+                @if (Model == null || !Model.ListingItems.Any())
+                {
+                    <h3>No reviews found!</h3>
+                }
+                @if (Model != null)
+                {
+                    foreach (var item in Model.ListingItems)
+                    {
+                        <ul class="searchList">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-4">
+                                        <div class="ribbon_3 popular"><span>Featured</span></div>
+                                        @if (item.ImagePath != null)
+                                        {
+                                            <div class="adimg"><img src="@Url.Content(item.ImagePath)" alt="Ad Name" /></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="adimg"><img src="~/Content/images/NoImage.jpg" alt="Ad Name" /></div>
+                                        }
+                                    </div>
+                                    <div class="col-md-9 col-sm-8">
+                                        <div class="jobinfo">
+                                            <div class="row">
+                                                <div class="col-md-8 col-sm-7">
+                                                    <h3><a href="@Url.Action("Detail", "Post", new {PostId = item.Id})">@item.Ingredients @item.Name </a></h3>
+                                                    <div class="Cuisine"><i class="fa fa-calendar" aria-hidden="true"></i> <span>@item.Calories</span></div>
+                                                    <div class="Cuisine"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>@item.SpicinessLevel</span></div>
+                                                    <div class="Cuisine"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>@item.Cuisine</span></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="vinfo"><span>@item.DietaryRestrictions</span></div>
+                                                    <div class="vinfo"><span>@item.Rating</span></div>
+                                                    <div class="vinfo"><span>@item.ChefSpeciality</span></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="date">Date Added: @item.DateAdded.ToString("dd.MM.yyyy")</div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-5 text-right">
+                                                    <div class="adprice">$@item.Price</div>
+                                                    <div class="listbtn"><a href="@Url.Action("Detail", "Post", new {PostId = item.Id})">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                }
+                <div class="pagiWrap">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="showreslt">Showing 1-10</div>
+                        </div>
+                        <div class="col-md-8 col-sm-8 text-right">
+                            <ul class="pagination">
+                                <li class="active"><a href="#.">1</a></li>
+                                <li><a href="#.">2</a></li>
+                                <li><a href="#.">3</a></li>
+                                <li><a href="#.">4</a></li>
+                                <li><a href="#.">5</a></li>
+                                <li><a href="#.">6</a></li>
+                                <li><a href="#.">7</a></li>
+                                <li><a href="#.">8</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

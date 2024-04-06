@@ -1,0 +1,150 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "NotFound";
+}
+@model System.Collections.Generic.List<Gamma.Domain.Entities.Post.PostMinimal>
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Listing</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="listpgWraper">
+    <div class="container">
+        <div class="sortbybar">
+            <div class="row">
+                <div class="col-sm-4"> <a href="listing.html" data-toggle="tooltip" data-placement="top" title="" class="listby" data-original-title="Result by List View"><i class="fa fa-th-list" aria-hidden="true"></i></a> <a href="grid.html" data-toggle="tooltip" data-placement="top" title="" class="listby" data-original-title="Result by Gallery View"><i class="fa fa-th-large" aria-hidden="true"></i></a> </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Sort By</span>
+                        <select class="form-control">
+                            <option>Most recent</option>
+                            <option>Price: Rs Low to High</option>
+                            <option>Price: Rs High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-5">
+                <div class="sidebar">
+                    <div class="widget">
+                        <h4 class="widget-title">Search By Keyword</h4>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Keyword">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="widget-title">Price Range</h4>
+                        <ul class="optionlist">
+                            <li>
+                                <input type="checkbox" name="checkname" id="price1" />
+                                <label for="price1"></label>
+                                1 to $10 <span>12</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="checkname" id="price2" />
+                                <label for="price2"></label>
+                                $5 to $15 <span>41</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="checkname" id="price3" />
+                                <label for="price3"></label>
+                                $15 to $30 <span>33</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="checkname" id="price4" />
+                                <label for="price4"></label>
+                                $20 to $50 <span>66</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="checkname" id="price5" />
+                                <label for="price5"></label>
+                                $50 to $100 <span>159</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="checkname" id="price6" />
+                                <label for="price6"></label>
+                                Above $100 <span>865</span>
+                            </li>
+                        </ul>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select class="form-control">
+                                    <option>From</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-control">
+                                    <option>To</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="widget-title">Calories Range</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select class="form-control">
+                                    <option>From</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-control">
+                                    <option>To</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="widget-title">ChefSpeciality</h4>
+                        <ul class="optionlist">
+                            <li>
+                                <input type="checkbox" name="checkname" id="Yes" />
+                                <label for="Yes"></label>
+                                Yes <span>12</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="checkname" id="No" />
+                                <label for="No"></label>
+                                No <span>33</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="searchnt">
+                        <button class="btn"><i class="fa fa-search" aria-hidden="true"></i> Update Results</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-7">
+                <h3>No reviews found!</h3>
+                <div class="pagiWrap">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="showreslt">Showing 1-10</div>
+                        </div>
+                        <div class="col-md-8 col-sm-8 text-right">
+                            <ul class="pagination">
+                                <li class="active"><a href="#.">1</a></li>
+                                <li><a href="#.">2</a></li>
+                                <li><a href="#.">3</a></li>
+                                <li><a href="#.">4</a></li>
+                                <li><a href="#.">5</a></li>
+                                <li><a href="#.">6</a></li>
+                                <li><a href="#.">7</a></li>
+                                <li><a href="#.">8</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
