@@ -1,0 +1,181 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detail";
+    @model Gamma.Web.Models.PostData
+}
+
+<!-- Page Title start -->
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-6">
+                <h1 class="page-heading">Ingredients. Name. Calories</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Title End -->
+
+<div class="listpgWraper">
+    <div class="container">
+
+        <!-- ad Detail start -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- ad Description start -->
+                <div class="advert-header">
+                    <div class="contentbox">
+                        @if (Model.ImagePath != null)
+                        {
+                            <div class="adimg"><img src="@Url.Content(Model.ImagePath)" alt="Ad Name" /></div>
+                        }
+                        else
+                        {
+                            <div class="adimg"><img src="~/Content/images/NoImage.jpg" alt="Ad Name" /></div>
+                        }
+                        <h3>Seller Comments</h3>
+                        <p>Comment</p>
+                    </div>
+                </div>
+                <!-- Job Description end -->
+                <!-- Inspection start -->
+                <div class="advert-header">
+                    <div class="contentbox">
+                        <h3>Car Inspection is Important Before buy a Used Car</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>A car inspection is particularly important before buying a used car for several reasons. A thorough inspection can reveal any hidden mechanical issues or defects that may not be apparent during a test drive. This includes things like engine problems, ChefSpeciality issues, or brake malfunctions that can compromise the vehicle's safety and performance. If you are considering purchasing a used car, it is crucial to have the vehicle inspected by a professional mechanic or conduct a thorough inspection yourself. Even if the car appears to be in good condition, it is essential to ensure that all of its components and systems are in working order to avoid any potential safety risks or costly repairs in the future.</p>
+                            </div>
+                            <div class="col-md-6"><img src="~/Content/images/carInspection.jpg" alt="" /></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- related jobs start -->
+                <div class="relatedJobs">
+                    @if (ViewBag.RelatedPosts.Count > 0)
+                    {
+                        <h3>Related Posts</h3>
+                    }
+                    else
+                    {
+                        <h3>No Related Posts</h3>
+                    }
+                    <ul class="searchList">
+                        <!-- ad start -->
+                        @foreach (var post in ViewBag.RelatedPosts)
+                        {
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-4">
+                                        @if (post.ImagePath != null)
+                                        {
+                                            <div class="adimg"><img src="@Url.Content(post.ImagePath)" alt="Ad Name" /></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="adimg"><img src="~/Content/images/NoImage.jpg" alt="Ad Name" /></div>
+                                        }
+                                    </div>
+                                    <div class="col-md-9 col-sm-8">
+                                        <div class="jobinfo">
+                                            <div class="row">
+                                                <div class="col-md-8 col-sm-7">
+                                                    <h3><a href="@Url.Action("Detail", "Post", new {PostId = post.Id})">@post.Ingredients @post.Name</a></h3>
+                                                    <div class="Cuisine"><i class="fa fa-calendar" aria-hidden="true"></i> <span>@post.Calories</span></div>
+                                                    <div class="Cuisine"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>@post.SpicinessLevel</span></div>
+                                                    <div class="Cuisine"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>@post.Cuisine</span></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="vinfo"><span>@post.DietaryRestrictions</span></div>
+                                                    <div class="vinfo"><span>@post.Rating</span></div>
+                                                    <div class="vinfo"><span>@post.ChefSpeciality</span></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="date">Date Added: @post.DateAdded.ToString("dd.MM.yyyy")</div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-5 text-right">
+                                                    <div class="adprice">$@post.Price</div>
+                                                    <div class="listbtn"><a href="@Url.Action("Detail", "Post", new {PostId = post.Id})">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- related jobs end -->
+
+            <div class="col-md-4">
+                <!-- Ad Header start -->
+                <div class="jbside">
+                    <div class="adsalary">Price <strong>$Price</strong></div>
+                    <div class="ptext"><i class="fa fa-clock-o" aria-hidden="true"></i>Date Added: DateAdded.ToString("dd.MM.yyyy")</div>
+                    <div class="ptext"><i class="fa fa-map-marker" aria-hidden="true"></i>Cuisine: Cuisine</div>
+                    <div class="clearfix"></div>
+                    <div class="adButtons"> <a class="btn apply"><i class="fa fa-phone" aria-hidden="true"></i> AuthorPhoneNumber</a> <a href="#." class="btn"><i class="fa fa-envelope" aria-hidden="true"></i>Author</a> <a href="#." class="btn"><i class="fa fa-print" aria-hidden="true"></i> Print this Ad</a> <a href="#." class="btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save This Ad</a> <a href="#." class="btn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report Abuse</a> </div>
+                </div>
+
+                <!-- Job Detail start -->
+                <div class="jbside">
+                    <h3>About This Car</h3>
+                    <ul class="jbdetail">
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">Registered City</div>
+                            <div class="col-md-6 col-xs-6"><span>Cuisine</span></div>
+                        </li>
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">Color</div>
+                            <div class="col-md-6 col-xs-6"><span>Color</span></div>
+                        </li>
+
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">Engine Capacity</div>
+                            <div class="col-md-6 col-xs-6"><span>Rating cc</span></div>
+                        </li>
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">Car Type</div>
+                            <div class="col-md-6 col-xs-6"><span>Type</span></div>
+                        </li>
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">Date Added</div>
+                            <div class="col-md-6 col-xs-6"><span>DateAdded.ToString("dd.MM.yyyy") DateAdded.ToString("HH.mm")</span></div>
+                        </li>
+
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">Calories</div>
+                            <div class="col-md-6 col-xs-6"><span>Calories</span></div>
+                        </li>
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">SpicinessLevel</div>
+                            <div class="col-md-6 col-xs-6"><span>SpicinessLevel</span></div>
+                        </li>
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">DietaryRestrictions</div>
+                            <div class="col-md-6 col-xs-6"><span>DietaryRestrictions</span></div>
+                        </li>
+                        <li class="row">
+                            <div class="col-md-6 col-xs-6">ChefSpeciality</div>
+                            <div class="col-md-6 col-xs-6"><span>ChefSpeciality</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Safety start -->
+                <div class="jbside">
+                    <h3>Stay Safe</h3>
+                    <div class="gmap">
+                        <ul class="unorderlist">
+                            <li>Avoid deals that are too good to be true.</li>
+                            <li>Deal with people in your area by meeting face to face to see the item.</li>
+                            <li>Never provide your personal or banking information.</li>
+                            <li>See our Safety tips regarding vehicle buying and selling.</li>
+                            <li><a href="@Url.Action("Faqs", "Faqs")">How to spot scam ads?</a></li>
+                            <li><a href="@Url.Action("Faqs", "Faqs")">How to protect yourself?</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

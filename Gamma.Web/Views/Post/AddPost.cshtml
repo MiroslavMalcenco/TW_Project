@@ -1,0 +1,138 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "AddPost";
+}
+@model Gamma.Web.Models.PostData
+@if (Model == null)
+{
+    var Name = new Gamma.Web.Models.PostData();
+}
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Написать обзор</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("AddPost", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="listpgWraper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="userccount">
+                        <div class="formpanel">
+                            <h5>Информация о блюде</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.TextBoxFor(a => a.Name, new { @class = "form-control", placeholder = "Name" })
+                                        @Html.ValidationMessageFor(a => a.Name)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.TextBoxFor(a => a.Ingredients, new { @class = "form-control", placeholder = "Ingredients" })
+                                        @Html.ValidationMessageFor(a => a.Ingredients)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="Type">
+                                            <option value="Not specified">Вид</option>
+                                            <option value="New">Новое</option>
+                                            <option value="Used">Популярное</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.TextBoxFor(a => a.Calories, new { @class = "form-control", placeholder = "Calories" })
+                                        @Html.ValidationMessageFor(a => a.Calories)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="ChefSpeciality">
+                                            <option value="Not specified">ChefSpeciality</option>                                     
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.TextBoxFor(a => a.SpicinessLevel, new { @class = "form-control", placeholder = "SpicinessLevel (km)" })
+                                        @Html.ValidationMessageFor(a => a.SpicinessLevel)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="DietaryRestrictions">
+                                            <option value="Not specified">Ничего</option>
+                                            <option value="NoMilk">Безлактозное</option>
+                                            <option value="OilFree">Нежирное</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="formrow">
+                                        <ul class="row featchoose">
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="taste"> Вкусное</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="look"> Аппетитное</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="fresh"> Свежее</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="price"> Недорого</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="speed"> Быстро</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="impressions"> Впечатляюще</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div style="text-align: center;" class="formrow">
+                                        <h4>Загрузите ваши фото</h4>
+                                        <p>Наши блюда прекрасны под любым углом</p>
+                                        <label class="uploadBox">
+                                            <input type="file" name="Image" id="Image">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.TextBoxFor(a => a.Price, new { @class = "form-control", placeholder = "Price $" })
+                                        @Html.ValidationMessageFor(a => a.Price)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.TextBoxFor(a => a.Cuisine, new { @class = "form-control", placeholder = "Cuisine" })
+                                        @Html.ValidationMessageFor(a => a.Cuisine)
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="formrow">
+                                        <textarea class="form-control" name="Comment" placeholder=" Comments"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <input type="submit" class="btn" value="Post">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}

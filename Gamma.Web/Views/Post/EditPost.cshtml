@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "EditPost";
+    @model Gamma.Web.Models.PostData
+}
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Edit the Review</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("EditPost", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="listpgWraper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="userccount">
+                        <div class="formpanel">
+                            <h5>Update dish information</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Name)
+                                        @Html.TextBoxFor(a => Model.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.Name)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Ingredients)
+                                        @Html.TextBoxFor(a => Model.Ingredients, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.Ingredients)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Calories)
+                                        @Html.TextBoxFor(a => Model.Calories, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.Calories)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <label for="ChefSpeciality">ChefSpeciality</label>
+                                        <select class="form-control" name="ChefSpeciality">
+                                            <option value="Not specified" @(Model.ChefSpeciality == "Not specified" ? "selected" : "")>ChefSpeciality</option>
+                                            <option value="Yes" @(Model.ChefSpeciality == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.ChefSpeciality == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <label for="Rating">Rating</label>
+                                        @Html.TextBoxFor(a => Model.Rating, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.Rating)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.SpicinessLevel)
+                                        @Html.TextBoxFor(a => Model.SpicinessLevel, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.SpicinessLevel)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div style="text-align: center;" class="formrow">
+                                        <h4>Update your dish photo</h4>
+                                        <p>It must be a head-shot photo</p>
+                                        <label class="uploadBox">
+                                            <input type="file" name="Image" id="Image">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        <label for="Price">Price $</label>
+                                        @Html.TextBoxFor(a => Model.Price, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.Price)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Cuisine)
+                                        @Html.TextBoxFor(a => Model.Cuisine, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(a => a.Cuisine)
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="formrow">
+                                        <textarea class="form-control" name="Comment" placeholder="Seller Comments"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            @Html.HiddenFor(a => a.Id)
+                            @Html.HiddenFor(a => a.Author)
+                            @Html.HiddenFor(a => a.AuthorPhoneNumber)
+                            <input type="submit" class="btn" value="Update">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
