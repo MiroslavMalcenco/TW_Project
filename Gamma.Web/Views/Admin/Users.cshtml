@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+@model System.Collections.Generic.List<Gamma.Web.Models.UserData>
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Панель управления администратора</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.AntiForgeryToken()
+<div class="inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <ul class="usernavdash">
+                    <li><a href="@Url.Action("Dashboard", "Admin")"><i class="fa fa-tachometer" aria-hidden="true"></i>Панель управления</a></li>
+                    <li class="active"><a href="@Url.Action("Users", "Admin")"><i class="fa fa-user" aria-hidden="true"></i>Пользователи</a></li>
+                    <li><a href="@Url.Action("Posts", "Admin")"><i class="fa fa-laptop" aria-hidden="true"></i>Обзоры</a></li>
+                    <li><a href="@Url.Action("ChangePassword", "Admin")"><i class="fa fa-lock" aria-hidden="true"></i>Настройки пароля</a></li>
+                    <li><a href="@Url.Action("UserLogout", "Dashboard")"><i class="fa fa-sign-out" aria-hidden="true"></i>Выход</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Полное имя</th>
+                            <th>Пользовательское имя</th>
+                            <th>Электронная почта</th>
+                            <th>Роль</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.Id</td>
+                                <td>@user.FullName</td>
+                                <td>@user.Username</td>
+                                <td>@user.Email</td>
+                                <td>@user.AccessLevel</td>
+                                <td>
+                                    <a href="@Url.Action("EditUser", "Admin", new { userId = user.Id })" class="btn btn-primary">Изменить</a>
+                                </td>
+                                <td>
+                                    <form method="post" action="@Url.Action("DeleteUser", "Admin", new { userid = user.Id })" onsubmit="return confirm('Вы уверены, что хотите удалить данного пользователя?');">
+                                        <button type="submit" class="btn btn-danger">Удалить</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="logoutForm" action="@Url.Action("Logout", "Dashboard")" method="post">
+    @Html.AntiForgeryToken()
+</form>
